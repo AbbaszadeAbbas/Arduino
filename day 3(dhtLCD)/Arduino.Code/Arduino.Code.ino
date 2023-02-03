@@ -1,4 +1,4 @@
-#include "DHT.h"
+#include <DHT.h>
 #include <LiquidCrystal_I2C.h>
 #define DHTPIN 2 
 #define DHTTYPE DHT22

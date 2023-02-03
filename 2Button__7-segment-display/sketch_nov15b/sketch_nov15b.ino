@@ -1,4 +1,5 @@
 long long s, s1, s2;
+long long helper = 0;
 int x = 0 ,y = 0,z;
 bool zero[7] = {0,1,1,1,1,1,1};
 bool one[7]  = {0,0,0,0,1,1,0};
@@ -20,21 +21,26 @@ void setup() {
 }
 
 void loop() {
-  if(digitalRead(5) == 1){
+  if(digitalRead(5) == 1 && helper == 0){
     if(x>=0 && x<=9){
       x++;
     }
     if(x>9){
       x = 0;
     }
+    helper = 1;
   }
-  if(digitalRead(4) == 1){
+  if(digitalRead(5) == 0 && helper == 1){
+    
+  }
+  if(digitalRead(4) == 1 && helper == 0){
     if(x>=0 && x<=9){
       x--;
     }
     if(x<0){
       x = 9;
     }
+    helper = 1;
   }
 
   if(x==0){
@@ -87,5 +93,4 @@ void loop() {
       digitalWrite(kartof, nine[kartof-6]);
     }
   }
-  delay(210);
 }
